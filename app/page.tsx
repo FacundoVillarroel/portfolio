@@ -15,11 +15,13 @@ import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Portfolio() {
+  const triggerClass =
+    "data-[state=active]:bg-blue-500 data-[state=active]:text-white";
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-950 dark:to-slate-900">
       {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-sm dark:bg-slate-950/80 dark:border-slate-800">
-        <div className="container flex h-16 items-center justify-between">
+        <div className="container flex h-16 items-center justify-between px-8">
           <div className="font-bold text-xl">
             <span className="text-slate-900 dark:text-white">Facundo</span>
             <span className="text-blue-600">Villarroel</span>
@@ -90,7 +92,7 @@ export default function Portfolio() {
       {/* Hero Section */}
       <section id="home" className="relative pt-20 md:pt-24 lg:pt-32 xl:pt-36">
         <div className="container px-4 md:px-6">
-          <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+          <div className="px-8 grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
             <div className="flex flex-col justify-center space-y-4">
               <div className="space-y-2">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
@@ -111,7 +113,7 @@ export default function Portfolio() {
               <div className="flex flex-col gap-2 text-slate-500 dark:text-slate-400">
                 <div className="flex items-center gap-2">
                   <MapPin className="h-4 w-4 text-blue-600" />
-                  <span>Guandacol 2131, Córdoba, Argentina</span>
+                  <span>Valencia, Spain</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Phone className="h-4 w-4 text-blue-600" />
@@ -507,10 +509,18 @@ export default function Portfolio() {
           <Tabs defaultValue="all" className="mt-12">
             <div className="flex justify-center">
               <TabsList>
-                <TabsTrigger value="all">All</TabsTrigger>
-                <TabsTrigger value="mobile">Mobile</TabsTrigger>
-                <TabsTrigger value="web">Web</TabsTrigger>
-                <TabsTrigger value="fullstack">Fullstack</TabsTrigger>
+                <TabsTrigger value="all" className={triggerClass}>
+                  All
+                </TabsTrigger>
+                <TabsTrigger value="mobile" className={triggerClass}>
+                  Mobile
+                </TabsTrigger>
+                <TabsTrigger value="web" className={triggerClass}>
+                  Web
+                </TabsTrigger>
+                <TabsTrigger value="fullstack" className={triggerClass}>
+                  Fullstack
+                </TabsTrigger>
               </TabsList>
             </div>
             <TabsContent value="all" className="mt-6">
@@ -755,7 +765,7 @@ export default function Portfolio() {
         className="py-20 md:py-24 lg:py-32 bg-slate-100 dark:bg-slate-900"
       >
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+          <div className="flex flex-col items-center  space-y-4 text-center">
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                 Contact Me
@@ -850,7 +860,7 @@ export default function Portfolio() {
                 </form>
               </CardContent>
             </Card>
-            <div className="flex flex-col justify-center space-y-4">
+            <div className="flex flex-col space-y-4">
               <Card>
                 <CardHeader>
                   <CardTitle>Contact Information</CardTitle>
@@ -879,7 +889,7 @@ export default function Portfolio() {
                     <div>
                       <p className="text-sm font-medium">Location</p>
                       <p className="text-slate-500 dark:text-slate-400">
-                        Guandacol 2131, Córdoba, Argentina
+                        Valencia, Spain
                       </p>
                     </div>
                   </div>
@@ -890,14 +900,14 @@ export default function Portfolio() {
                   <CardTitle>Connect With Me</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="flex justify-center space-x-4">
+                  <div className="flex space-x-4">
                     <Link
                       href="https://www.linkedin.com/in/facundo-villarroel-391a26236"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-slate-500 hover:text-blue-600 dark:text-slate-400"
                     >
-                      <Linkedin className="h-6 w-6" />
+                      <Linkedin className="h-10 w-10" />
                       <span className="sr-only">LinkedIn</span>
                     </Link>
                     <Link
@@ -906,7 +916,7 @@ export default function Portfolio() {
                       rel="noopener noreferrer"
                       className="text-slate-500 hover:text-blue-600 dark:text-slate-400"
                     >
-                      <Github className="h-6 w-6" />
+                      <Github className="h-10 w-10" />
                       <span className="sr-only">GitHub</span>
                     </Link>
                   </div>
@@ -919,7 +929,7 @@ export default function Portfolio() {
 
       {/* Footer */}
       <footer className="border-t bg-white dark:bg-slate-950 dark:border-slate-800">
-        <div className="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
+        <div className="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0 px-8">
           <div className="text-center text-sm leading-loose text-slate-500 dark:text-slate-400 md:text-left">
             © 2025 Facundo Villarroel. All rights reserved.
           </div>
@@ -930,7 +940,7 @@ export default function Portfolio() {
               rel="noopener noreferrer"
               className="text-slate-500 hover:text-blue-600 dark:text-slate-400"
             >
-              <Linkedin className="h-5 w-5" />
+              <Linkedin className="h-8 w-8" />
               <span className="sr-only">LinkedIn</span>
             </Link>
             <Link
@@ -939,7 +949,7 @@ export default function Portfolio() {
               rel="noopener noreferrer"
               className="text-slate-500 hover:text-blue-600 dark:text-slate-400"
             >
-              <Github className="h-5 w-5" />
+              <Github className="h-8 w-8" />
               <span className="sr-only">GitHub</span>
             </Link>
           </div>
