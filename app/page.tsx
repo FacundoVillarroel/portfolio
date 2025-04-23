@@ -65,7 +65,9 @@ export default function Portfolio() {
             </Link>
           </nav>
           <Button variant="outline" size="sm" className="hidden md:flex">
-            Download CV
+            <a href="/CV-FACUNDO-VILLARROEL.pdf" download>
+              Download CV
+            </a>
           </Button>
           <Button variant="ghost" size="sm" className="md:hidden">
             <svg
