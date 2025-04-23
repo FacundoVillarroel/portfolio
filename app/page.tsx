@@ -1,3 +1,5 @@
+"use client";
+
 import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,10 +15,58 @@ import {
 } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ChangeEvent, FormEvent, useState } from "react";
+
+interface FormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  subject: string;
+  message: string;
+}
 
 export default function Portfolio() {
+  const [formData, setFormData] = useState<FormData>({
+    firstName: "",
+    lastName: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const value = e.target.value;
+    let id = e.target.id;
+    if (id === "first-name") {
+      id = "firstName";
+    }
+    if (id === "last-name") {
+      id = "lastName";
+    }
+    setFormData((prevData) => ({
+      ...prevData,
+      [id]: value,
+    }));
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
+    alert("Message sent!");
+    console.log(formData);
+  };
+
   const triggerClass =
     "data-[state=active]:bg-blue-500 data-[state=active]:text-white";
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-950 dark:to-slate-900">
       {/* Header */}
@@ -787,7 +837,7 @@ export default function Portfolio() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <form className="space-y-4">
+                <form className="space-y-4" onSubmit={handleSubmit}>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <label
@@ -800,6 +850,8 @@ export default function Portfolio() {
                         id="first-name"
                         className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                         placeholder="Enter your first name"
+                        value={formData.firstName}
+                        onChange={handleInputChange}
                       />
                     </div>
                     <div className="space-y-2">
@@ -813,6 +865,8 @@ export default function Portfolio() {
                         id="last-name"
                         className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                         placeholder="Enter your last name"
+                        value={formData.lastName}
+                        onChange={handleInputChange}
                       />
                     </div>
                   </div>
@@ -828,6 +882,8 @@ export default function Portfolio() {
                       type="email"
                       className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                       placeholder="Enter your email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                     />
                   </div>
                   <div className="space-y-2">
@@ -841,6 +897,8 @@ export default function Portfolio() {
                       id="subject"
                       className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                       placeholder="Enter the subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
                     />
                   </div>
                   <div className="space-y-2">
@@ -854,9 +912,14 @@ export default function Portfolio() {
                       id="message"
                       className="flex min-h-[120px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                       placeholder="Enter your message"
+                      value={formData.message}
+                      onChange={handleInputChange}
                     />
                   </div>
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                  <Button
+                    type="submit"
+                    className="w-full bg-blue-600 hover:bg-blue-700"
+                  >
                     Send Message
                   </Button>
                 </form>
