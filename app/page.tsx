@@ -15,6 +15,11 @@ import {
 } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  ProjectDetailsModal,
+  type ProjectType,
+} from "@/components/project-details-modal";
+import { getProjectsByCategory } from "@/data/projects";
 import { ChangeEvent, FormEvent, useState } from "react";
 
 interface FormData {
@@ -26,6 +31,10 @@ interface FormData {
 }
 
 export default function Portfolio() {
+  const [selectedProject, setSelectedProject] = useState<ProjectType | null>(
+    null
+  );
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
@@ -554,7 +563,7 @@ export default function Portfolio() {
                 Projects
               </h2>
               <p className="mx-auto max-w-[700px] text-slate-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-slate-400">
-                Showcasing my recent work
+                Showcasing my work
               </p>
             </div>
           </div>
@@ -575,238 +584,53 @@ export default function Portfolio() {
                 </TabsTrigger>
               </TabsList>
             </div>
-            <TabsContent value="all" className="mt-6">
-              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                <Card>
-                  <CardHeader className="p-0">
-                    <Image
-                      src="/placeholder.svg?height=300&width=500"
-                      alt="CaminAR App"
-                      width={500}
-                      height={300}
-                      className="rounded-t-lg object-cover w-full h-48"
-                    />
-                  </CardHeader>
-                  <CardContent className="p-6">
-                    <CardTitle>CaminAR</CardTitle>
-                    <CardDescription className="mt-2">
-                      Tourism management and promotion app built with React
-                      Native and Node.js.
-                    </CardDescription>
-                  </CardContent>
-                  <CardFooter className="flex justify-between">
-                    <Button variant="outline" size="sm">
-                      View Demo
-                    </Button>
-                    <Button size="sm">Details</Button>
-                  </CardFooter>
-                </Card>
-                <Card>
-                  <CardHeader className="p-0">
-                    <Image
-                      src="/placeholder.svg?height=300&width=500"
-                      alt="Clockaburra App"
-                      width={500}
-                      height={300}
-                      className="rounded-t-lg object-cover w-full h-48"
-                    />
-                  </CardHeader>
-                  <CardContent className="p-6">
-                    <CardTitle>Clockaburra</CardTitle>
-                    <CardDescription className="mt-2">
-                      Work shift management application with React, React
-                      Native, and Node.js.
-                    </CardDescription>
-                  </CardContent>
-                  <CardFooter className="flex justify-between">
-                    <Button variant="outline" size="sm">
-                      View Demo
-                    </Button>
-                    <Button size="sm">Details</Button>
-                  </CardFooter>
-                </Card>
-                <Card>
-                  <CardHeader className="p-0">
-                    <Image
-                      src="/placeholder.svg?height=300&width=500"
-                      alt="DWORD Landing Page"
-                      width={500}
-                      height={300}
-                      className="rounded-t-lg object-cover w-full h-48"
-                    />
-                  </CardHeader>
-                  <CardContent className="p-6">
-                    <CardTitle>DWORD</CardTitle>
-                    <CardDescription className="mt-2">
-                      Web Developer Portfolio Landing Page with animations and
-                      SEO optimization.
-                    </CardDescription>
-                  </CardContent>
-                  <CardFooter className="flex justify-between">
-                    <Button variant="outline" size="sm">
-                      View Demo
-                    </Button>
-                    <Button size="sm">Details</Button>
-                  </CardFooter>
-                </Card>
-              </div>
-            </TabsContent>
-            <TabsContent value="mobile" className="mt-6">
-              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                <Card>
-                  <CardHeader className="p-0">
-                    <Image
-                      src="/placeholder.svg?height=300&width=500"
-                      alt="CaminAR App"
-                      width={500}
-                      height={300}
-                      className="rounded-t-lg object-cover w-full h-48"
-                    />
-                  </CardHeader>
-                  <CardContent className="p-6">
-                    <CardTitle>CaminAR</CardTitle>
-                    <CardDescription className="mt-2">
-                      Tourism management and promotion app built with React
-                      Native and Node.js.
-                    </CardDescription>
-                  </CardContent>
-                  <CardFooter className="flex justify-between">
-                    <Button variant="outline" size="sm">
-                      View Demo
-                    </Button>
-                    <Button size="sm">Details</Button>
-                  </CardFooter>
-                </Card>
-                <Card>
-                  <CardHeader className="p-0">
-                    <Image
-                      src="/placeholder.svg?height=300&width=500"
-                      alt="Clockaburra Mobile App"
-                      width={500}
-                      height={300}
-                      className="rounded-t-lg object-cover w-full h-48"
-                    />
-                  </CardHeader>
-                  <CardContent className="p-6">
-                    <CardTitle>Clockaburra Mobile</CardTitle>
-                    <CardDescription className="mt-2">
-                      React Native mobile app for work shift management with
-                      real-time synchronization.
-                    </CardDescription>
-                  </CardContent>
-                  <CardFooter className="flex justify-between">
-                    <Button variant="outline" size="sm">
-                      View Demo
-                    </Button>
-                    <Button size="sm">Details</Button>
-                  </CardFooter>
-                </Card>
-              </div>
-            </TabsContent>
-            <TabsContent value="web" className="mt-6">
-              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                <Card>
-                  <CardHeader className="p-0">
-                    <Image
-                      src="/placeholder.svg?height=300&width=500"
-                      alt="DWORD Landing Page"
-                      width={500}
-                      height={300}
-                      className="rounded-t-lg object-cover w-full h-48"
-                    />
-                  </CardHeader>
-                  <CardContent className="p-6">
-                    <CardTitle>DWORD</CardTitle>
-                    <CardDescription className="mt-2">
-                      Web Developer Portfolio Landing Page with animations and
-                      SEO optimization.
-                    </CardDescription>
-                  </CardContent>
-                  <CardFooter className="flex justify-between">
-                    <Button variant="outline" size="sm">
-                      View Demo
-                    </Button>
-                    <Button size="sm">Details</Button>
-                  </CardFooter>
-                </Card>
-                <Card>
-                  <CardHeader className="p-0">
-                    <Image
-                      src="/placeholder.svg?height=300&width=500"
-                      alt="Clockaburra Web Dashboard"
-                      width={500}
-                      height={300}
-                      className="rounded-t-lg object-cover w-full h-48"
-                    />
-                  </CardHeader>
-                  <CardContent className="p-6">
-                    <CardTitle>Clockaburra Web</CardTitle>
-                    <CardDescription className="mt-2">
-                      React.js web application for work shift management with
-                      admin dashboard.
-                    </CardDescription>
-                  </CardContent>
-                  <CardFooter className="flex justify-between">
-                    <Button variant="outline" size="sm">
-                      View Demo
-                    </Button>
-                    <Button size="sm">Details</Button>
-                  </CardFooter>
-                </Card>
-              </div>
-            </TabsContent>
-            <TabsContent value="fullstack" className="mt-6">
-              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                <Card>
-                  <CardHeader className="p-0">
-                    <Image
-                      src="/placeholder.svg?height=300&width=500"
-                      alt="CaminAR App"
-                      width={500}
-                      height={300}
-                      className="rounded-t-lg object-cover w-full h-48"
-                    />
-                  </CardHeader>
-                  <CardContent className="p-6">
-                    <CardTitle>CaminAR</CardTitle>
-                    <CardDescription className="mt-2">
-                      Tourism management and promotion app built with React
-                      Native and Node.js.
-                    </CardDescription>
-                  </CardContent>
-                  <CardFooter className="flex justify-between">
-                    <Button variant="outline" size="sm">
-                      View Demo
-                    </Button>
-                    <Button size="sm">Details</Button>
-                  </CardFooter>
-                </Card>
-                <Card>
-                  <CardHeader className="p-0">
-                    <Image
-                      src="/placeholder.svg?height=300&width=500"
-                      alt="Clockaburra App"
-                      width={500}
-                      height={300}
-                      className="rounded-t-lg object-cover w-full h-48"
-                    />
-                  </CardHeader>
-                  <CardContent className="p-6">
-                    <CardTitle>Clockaburra</CardTitle>
-                    <CardDescription className="mt-2">
-                      Complete work shift management solution with web, mobile,
-                      and backend components.
-                    </CardDescription>
-                  </CardContent>
-                  <CardFooter className="flex justify-between">
-                    <Button variant="outline" size="sm">
-                      View Demo
-                    </Button>
-                    <Button size="sm">Details</Button>
-                  </CardFooter>
-                </Card>
-              </div>
-            </TabsContent>
+            {["all", "mobile", "web", "fullstack"].map((category) => (
+              <TabsContent key={category} value={category} className="mt-6">
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {getProjectsByCategory(category).map((project) => (
+                    <Card key={project.id}>
+                      <CardHeader className="p-0">
+                        <Image
+                          src={project.image || "/placeholder.svg"}
+                          alt={project.title}
+                          width={500}
+                          height={300}
+                          className="rounded-t-lg object-cover w-full h-48"
+                        />
+                      </CardHeader>
+                      <CardContent className="p-6">
+                        <CardTitle>{project.title}</CardTitle>
+                        <CardDescription className="mt-2">
+                          {project.description}
+                        </CardDescription>
+                      </CardContent>
+                      <CardFooter className="flex justify-between">
+                        {project.demoUrl && (
+                          <Button variant="outline" size="sm" asChild>
+                            <a
+                              href={project.demoUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              View Demo
+                            </a>
+                          </Button>
+                        )}
+                        <Button
+                          size="sm"
+                          onClick={() => {
+                            setSelectedProject(project);
+                            setIsModalOpen(true);
+                          }}
+                        >
+                          Details
+                        </Button>
+                      </CardFooter>
+                    </Card>
+                  ))}
+                </div>
+              </TabsContent>
+            ))}
           </Tabs>
         </div>
       </section>
@@ -1020,6 +844,12 @@ export default function Portfolio() {
           </div>
         </div>
       </footer>
+      {/* Project Details Modal */}
+      <ProjectDetailsModal
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }
