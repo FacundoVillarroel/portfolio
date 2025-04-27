@@ -21,7 +21,7 @@ export type ProjectType = {
   image: string;
   technologies: string[];
   demoUrl?: string;
-  category: "mobile" | "web" | "fullstack";
+  category: "mobile" | "web" | "fullstack" | "backend";
 };
 
 interface ProjectDetailsModalProps {

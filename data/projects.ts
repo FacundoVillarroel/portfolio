@@ -3,7 +3,7 @@ import type { ProjectType } from "@/components/project-details-modal";
 export const projects: ProjectType[] = [
   {
     id: "1",
-    title: "Sword Website (Coder Project)",
+    title: "Sword Website",
     description:
       "Institutional website developed for a real client as part of a team project.",
     longDescription:
@@ -19,7 +19,7 @@ export const projects: ProjectType[] = [
     description: "Scalable RESTful API for shift and employee management.",
     longDescription:
       "Robust backend built with Node.js, featuring JWT authentication, Swagger documentation, MongoDB integration, and modular architecture. Ideal for HR systems, with full deployment and best backend practices.",
-    image: "/placeholder.svg?height=300&width=500",
+    image: "/clockaburra-backend.png",
     technologies: ["Node.js", "Express", "MongoDB", "JWT", "Swagger"],
     demoUrl: "https://sustaining-bristle-moose.glitch.me/api-docs/",
     category: "fullstack",
@@ -30,7 +30,7 @@ export const projects: ProjectType[] = [
     description: "Web frontend for Clockaburra app, built in React.",
     longDescription:
       "Responsive web app connected to the Clockaburra API. Allows users to log shifts, view history, and manage schedules. Uses Redux for state management and Axios for API calls.",
-    image: "/placeholder.svg?height=300&width=500",
+    image: "/clockaburra-web.png",
     technologies: ["React", "Redux", "Axios", "React Router"],
     demoUrl: "https://clockaburra-web.vercel.app/",
     category: "web",
@@ -41,14 +41,14 @@ export const projects: ProjectType[] = [
     description: "Mobile app built with React Native for shift tracking.",
     longDescription:
       "Developed with React Native and Expo for employees to clock in/out and view their work stats. Real-time backend integration, designed for mobile performance and usability.",
-    image: "/placeholder.svg?height=300&width=500",
+    image: "/clockaburra-app.png",
     technologies: ["React Native", "Expo", "Redux", "React Navigation"],
     demoUrl: "#",
     category: "mobile",
   },
   {
     id: "5",
-    title: "Ecommerce Backend (Final Backend Project)",
+    title: "Ecommerce Backend",
     description:
       "Full-featured ecommerce backend with GraphQL and real-time updates.",
     longDescription:
@@ -56,16 +56,16 @@ export const projects: ProjectType[] = [
     image: "/placeholder.svg?height=300&width=500",
     technologies: ["Node.js", "GraphQL", "JWT", "WebSockets", "MongoDB"],
     demoUrl: "https://sustaining-bristle-moose.glitch.me/",
-    category: "fullstack",
+    category: "backend",
   },
   {
     id: "6",
-    title: "Recreativo F.C. (React Final Project)",
+    title: "Recreativo F.C. (Ecommerce in React)",
     description:
       "Sports club website with dynamic store built in React and Firebase.",
     longDescription:
       "Final React project showcasing a full-featured frontend with Firebase integration. Includes a product catalog, cart, and responsive UI tailored to a real use case.",
-    image: "/placeholder.svg?height=300&width=500",
+    image: "/recreativo-ecommerce.png",
     technologies: ["React", "Firebase", "Bootstrap", "SCSS"],
     demoUrl: "https://proyecto-final-react-js-two.vercel.app/",
     category: "web",
@@ -76,24 +76,13 @@ export const projects: ProjectType[] = [
     description: "Responsive static site built with a mobile-first approach.",
     longDescription:
       "Developed for the Web Development course, this site applies HTML, CSS, and Bootstrap to create a static but fully responsive design. Represents a strong foundation in web layout and structure.",
-    image: "/placeholder.svg?height=300&width=500",
+    image: "/recreativo-web.png",
     technologies: ["HTML", "CSS", "SCSS", "Bootstrap"],
     demoUrl: "https://facundovillarroel.github.io/FinalProyectWebDevelopment/",
     category: "web",
   },
   {
     id: "8",
-    title: "Personal Portfolio Website",
-    description: "Professional portfolio built with React and TypeScript.",
-    longDescription:
-      "This personal website highlights fullstack experience and showcases key projects. Built with React and TypeScript, featuring custom components, animations, and clean design.",
-    image: "/placeholder.svg?height=300&width=500",
-    technologies: ["React", "TypeScript", "CSS"],
-    demoUrl: "https://portfolio-delta-one-45.vercel.app/",
-    category: "web",
-  },
-  {
-    id: "9",
     title: "Mybrary",
     description: "CRUD app for managing books built with Node.js and MongoDB.",
     longDescription:
@@ -101,19 +90,7 @@ export const projects: ProjectType[] = [
     image: "/placeholder.svg?height=300&width=500",
     technologies: ["Node.js", "Express", "MongoDB", "EJS"],
     demoUrl: "https://mybrary-web-one.herokuapp.com/",
-    category: "fullstack",
-  },
-  {
-    id: "10",
-    title: "JavaScript Store (Final JS Project)",
-    description:
-      "Online store built with pure JavaScript and DOM manipulation.",
-    longDescription:
-      "Developed as a final project for the JavaScript course. Implements cart logic, filters, search, and UI interactions without frameworks. Highlights deep understanding of vanilla JS and browser APIs.",
-    image: "/placeholder.svg?height=300&width=500",
-    technologies: ["JavaScript", "HTML", "CSS", "SCSS"],
-    demoUrl: "https://facundovillarroel.github.io/FinalProyectJavaScript/",
-    category: "web",
+    category: "backend",
   },
 ];
 

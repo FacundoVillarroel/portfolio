@@ -128,25 +128,6 @@ export default function Portfolio() {
               Download CV
             </a>
           </Button>
-          <Button variant="ghost" size="sm" className="md:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-6 w-6"
-            >
-              <line x1="4" x2="20" y1="12" y2="12" />
-              <line x1="4" x2="20" y1="6" y2="6" />
-              <line x1="4" x2="20" y1="18" y2="18" />
-            </svg>
-            <span className="sr-only">Toggle menu</span>
-          </Button>
         </div>
       </header>
 
@@ -579,58 +560,63 @@ export default function Portfolio() {
                 <TabsTrigger value="web" className={triggerClass}>
                   Web
                 </TabsTrigger>
+                <TabsTrigger value="backend" className={triggerClass}>
+                  Backend
+                </TabsTrigger>
                 <TabsTrigger value="fullstack" className={triggerClass}>
                   Fullstack
                 </TabsTrigger>
               </TabsList>
             </div>
-            {["all", "mobile", "web", "fullstack"].map((category) => (
-              <TabsContent key={category} value={category} className="mt-6">
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                  {getProjectsByCategory(category).map((project) => (
-                    <Card key={project.id}>
-                      <CardHeader className="p-0">
-                        <Image
-                          src={project.image || "/placeholder.svg"}
-                          alt={project.title}
-                          width={500}
-                          height={300}
-                          className="rounded-t-lg object-cover w-full h-48"
-                        />
-                      </CardHeader>
-                      <CardContent className="p-6">
-                        <CardTitle>{project.title}</CardTitle>
-                        <CardDescription className="mt-2">
-                          {project.description}
-                        </CardDescription>
-                      </CardContent>
-                      <CardFooter className="flex justify-between">
-                        {project.demoUrl && (
-                          <Button variant="outline" size="sm" asChild>
-                            <a
-                              href={project.demoUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              View Demo
-                            </a>
+            {["all", "mobile", "web", "backend", "fullstack"].map(
+              (category) => (
+                <TabsContent key={category} value={category} className="mt-6">
+                  <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    {getProjectsByCategory(category).map((project) => (
+                      <Card key={project.id}>
+                        <CardHeader className="p-0">
+                          <Image
+                            src={project.image || "/placeholder.svg"}
+                            alt={project.title}
+                            width={500}
+                            height={300}
+                            className="rounded-t-lg object-cover w-full h-48"
+                          />
+                        </CardHeader>
+                        <CardContent className="p-6">
+                          <CardTitle>{project.title}</CardTitle>
+                          <CardDescription className="mt-2">
+                            {project.description}
+                          </CardDescription>
+                        </CardContent>
+                        <CardFooter className="flex justify-between">
+                          {project.demoUrl && (
+                            <Button variant="outline" size="sm" asChild>
+                              <a
+                                href={project.demoUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                View Demo
+                              </a>
+                            </Button>
+                          )}
+                          <Button
+                            size="sm"
+                            onClick={() => {
+                              setSelectedProject(project);
+                              setIsModalOpen(true);
+                            }}
+                          >
+                            Details
                           </Button>
-                        )}
-                        <Button
-                          size="sm"
-                          onClick={() => {
-                            setSelectedProject(project);
-                            setIsModalOpen(true);
-                          }}
-                        >
-                          Details
-                        </Button>
-                      </CardFooter>
-                    </Card>
-                  ))}
-                </div>
-              </TabsContent>
-            ))}
+                        </CardFooter>
+                      </Card>
+                    ))}
+                  </div>
+                </TabsContent>
+              )
+            )}
           </Tabs>
         </div>
       </section>
