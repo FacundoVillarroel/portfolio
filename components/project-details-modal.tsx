@@ -13,6 +13,8 @@ import {
   DialogClose,
 } from "@/components/ui/dialog";
 
+export type CategoryType = "mobile" | "web" | "fullstack" | "backend";
+
 export type ProjectType = {
   id: string;
   title: string;
@@ -21,7 +23,7 @@ export type ProjectType = {
   image: string;
   technologies: string[];
   demoUrl?: string;
-  category: "mobile" | "web" | "fullstack" | "backend";
+  category: CategoryType[];
 };
 
 interface ProjectDetailsModalProps {

@@ -1,4 +1,7 @@
-import type { ProjectType } from "@/components/project-details-modal";
+import type {
+  ProjectType,
+  CategoryType,
+} from "@/components/project-details-modal";
 
 export const projects: ProjectType[] = [
   {
@@ -11,7 +14,7 @@ export const projects: ProjectType[] = [
     image: "/dword.png",
     technologies: ["React", "CSS", "Figma"],
     demoUrl: "https://proyecto-coder-drab.vercel.app/",
-    category: "web",
+    category: ["web"],
   },
   {
     id: "2",
@@ -22,7 +25,7 @@ export const projects: ProjectType[] = [
     image: "/clockaburra-backend.png",
     technologies: ["Node.js", "Express", "MongoDB", "JWT", "Swagger"],
     demoUrl: "https://clockaburra-restful-api.vercel.app/api-docs",
-    category: "fullstack",
+    category: ["backend","fullstack"],
   },
   {
     id: "3",
@@ -33,7 +36,7 @@ export const projects: ProjectType[] = [
     image: "/clockaburra-web.png",
     technologies: ["React", "Redux", "Axios", "React Router"],
     demoUrl: "https://clockaburra-web.vercel.app/",
-    category: "web",
+    category: ["web", "fullstack"],
   },
   {
     id: "4",
@@ -44,7 +47,7 @@ export const projects: ProjectType[] = [
     image: "/clockaburra-app.png",
     technologies: ["React Native", "Expo", "Redux", "React Navigation"],
     demoUrl: "#",
-    category: "mobile",
+    category: ["mobile", "fullstack"],
   },
   {
     id: "5",
@@ -56,7 +59,7 @@ export const projects: ProjectType[] = [
     image: "/placeholder.svg?height=300&width=500",
     technologies: ["Node.js", "GraphQL", "JWT", "WebSockets", "MongoDB"],
     demoUrl: "https://sustaining-bristle-moose.glitch.me/",
-    category: "backend",
+    category: ["backend"],
   },
   {
     id: "6",
@@ -67,8 +70,8 @@ export const projects: ProjectType[] = [
       "Final React project showcasing a full-featured frontend with Firebase integration. Includes a product catalog, cart, and responsive UI tailored to a real use case.",
     image: "/recreativo-ecommerce.png",
     technologies: ["React", "Firebase", "Bootstrap", "SCSS"],
-    demoUrl: "https://proyecto-final-react-js-two.vercel.app/",
-    category: "web",
+    demoUrl: "https://proyecto-final-react-js-two.vercel.app/tienda",
+    category: ["web"],
   },
   {
     id: "7",
@@ -79,7 +82,7 @@ export const projects: ProjectType[] = [
     image: "/recreativo-web.png",
     technologies: ["HTML", "CSS", "SCSS", "Bootstrap"],
     demoUrl: "https://facundovillarroel.github.io/FinalProyectWebDevelopment/",
-    category: "web",
+    category: ["web"],
   },
   {
     id: "8",
@@ -90,7 +93,19 @@ export const projects: ProjectType[] = [
     image: "/placeholder.svg?height=300&width=500",
     technologies: ["Node.js", "Express", "MongoDB", "EJS"],
     demoUrl: "https://mybrary-web-one.herokuapp.com/",
-    category: "backend",
+    category: ["backend"],
+  },
+  {
+    id: "9",
+    title: "Exercises App",
+    description:
+      "Aplicación para visualizar una lista de ejercicios físicos, construida con React.",
+    longDescription:
+      "Aplicación educativa en desarrollo para gestionar una lista de ejercicios físicos. Actualmente, permite visualizar los ejercicios, pero no implementa operaciones CRUD. Utiliza React para la interfaz de usuario y está desplegada en Vercel.",
+    image: "/exercise-app.png",
+    technologies: ["React", "Vercel"],
+    demoUrl: "https://exercises-app.vercel.app",
+    category: ["web"],
   },
 ];
 
@@ -98,7 +113,9 @@ export const getProjectById = (id: string): ProjectType | undefined => {
   return projects.find((project) => project.id === id);
 };
 
-export const getProjectsByCategory = (category: string): ProjectType[] => {
-  if (category === "all") return projects;
-  return projects.filter((project) => project.category === category);
-};
+export function getProjectsByCategory(category: string) {
+  return projects.filter(
+    (project) =>
+      category === "all" || project.category.includes(category as CategoryType)
+  );
+}
