@@ -25,7 +25,7 @@ export const projects: ProjectType[] = [
     image: "/clockaburra-backend.png",
     technologies: ["Node.js", "Express", "MongoDB", "JWT", "Swagger"],
     demoUrl: "https://clockaburra-restful-api.vercel.app/api-docs",
-    category: ["backend","fullstack"],
+    category: ["backend", "fullstack"],
   },
   {
     id: "3",
@@ -90,9 +90,9 @@ export const projects: ProjectType[] = [
     description: "CRUD app for managing books built with Node.js and MongoDB.",
     longDescription:
       "Educational fullstack app to manage a library of books. Implements full CRUD operations, EJS templating, and MongoDB for persistence. Demonstrates understanding of server-side rendering and Express routing.",
-    image: "/placeholder.svg?height=300&width=500",
+    image: "/mybrary.png",
     technologies: ["Node.js", "Express", "MongoDB", "EJS"],
-    demoUrl: "https://mybrary-web-one.herokuapp.com/",
+    demoUrl: "https://mybrary-snowy.vercel.app/",
     category: ["backend"],
   },
   {
