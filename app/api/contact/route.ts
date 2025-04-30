@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import nodemailer from "nodemailer";
 
+export const runtime = "nodejs";
+
 const ContactSchema = z.object({
   firstName: z.string().min(1),
   lastName: z.string().min(1),
