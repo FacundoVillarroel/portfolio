@@ -590,17 +590,31 @@ export default function Portfolio() {
                           </CardDescription>
                         </CardContent>
                         <CardFooter className="flex justify-between">
-                          {project.demoUrl && (
-                            <Button variant="outline" size="sm" asChild>
-                              <a
-                                href={project.demoUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                View Demo
-                              </a>
-                            </Button>
-                          )}
+                          <div className="flex gap-2">
+                            {project.demoUrl && (
+                              <Button variant="outline" size="sm" asChild>
+                                <a
+                                  href={project.demoUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  View demo
+                                </a>
+                              </Button>
+                            )}
+                            {project.repoUrl && (
+                              <Button variant="outline" size="sm" asChild>
+                                <a
+                                  href={project.repoUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  <Github className="h-4 w-4 mr-2" />
+                                  Repository
+                                </a>
+                              </Button>
+                            )}
+                          </div>
                           <Button
                             size="sm"
                             onClick={() => {

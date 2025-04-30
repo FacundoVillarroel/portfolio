@@ -23,6 +23,7 @@ export type ProjectType = {
   image: string;
   technologies: string[];
   demoUrl?: string;
+  repoUrl: string;
   category: CategoryType[];
 };
 

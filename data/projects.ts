@@ -14,6 +14,7 @@ export const projects: ProjectType[] = [
     image: "/dword.png",
     technologies: ["React", "CSS", "Figma"],
     demoUrl: "https://proyecto-coder-drab.vercel.app/",
+    repoUrl: "https://github.com/FacundoVillarroel/Proyecto-Coder",
     category: ["web"],
   },
   {
@@ -25,6 +26,7 @@ export const projects: ProjectType[] = [
     image: "/clockaburra-backend.png",
     technologies: ["Node.js", "Express", "MongoDB", "JWT", "Swagger"],
     demoUrl: "https://clockaburra-restful-api.vercel.app/api-docs",
+    repoUrl: "https://github.com/FacundoVillarroel/Clockaburra-RESTful-API",
     category: ["backend", "fullstack"],
   },
   {
@@ -36,6 +38,7 @@ export const projects: ProjectType[] = [
     image: "/clockaburra-web.png",
     technologies: ["React", "Redux", "Axios", "React Router"],
     demoUrl: "https://clockaburra-web.vercel.app/",
+    repoUrl: "https://github.com/FacundoVillarroel/Clockaburra-Web",
     category: ["web", "fullstack"],
   },
   {
@@ -46,7 +49,8 @@ export const projects: ProjectType[] = [
       "Developed with React Native and Expo for employees to clock in/out and view their work stats. Real-time backend integration, designed for mobile performance and usability.",
     image: "/clockaburra-app.png",
     technologies: ["React Native", "Expo", "Redux", "React Navigation"],
-    demoUrl: "#",
+    demoUrl: "",
+    repoUrl: "https://github.com/FacundoVillarroel/Clockaburra-App",
     category: ["mobile", "fullstack"],
   },
   {
@@ -56,9 +60,10 @@ export const projects: ProjectType[] = [
       "Full-featured ecommerce backend with GraphQL and real-time updates.",
     longDescription:
       "Final project for the Backend course. Includes user authentication, cart functionality, GraphQL queries, WebSocket notifications, and email integration with Nodemailer. Deployed and production-ready.",
-    image: "/placeholder.svg?height=300&width=500",
+    image: "/ecommerce-backend.png",
     technologies: ["Node.js", "GraphQL", "JWT", "WebSockets", "MongoDB"],
-    demoUrl: "https://sustaining-bristle-moose.glitch.me/",
+    demoUrl: "https://final-project-backend-ecommerce.vercel.app/",
+    repoUrl: "https://github.com/FacundoVillarroel/finalProjectBackend",
     category: ["backend"],
   },
   {
@@ -71,6 +76,7 @@ export const projects: ProjectType[] = [
     image: "/recreativo-ecommerce.png",
     technologies: ["React", "Firebase", "Bootstrap", "SCSS"],
     demoUrl: "https://proyecto-final-react-js-two.vercel.app/tienda",
+    repoUrl: "https://github.com/FacundoVillarroel/ProyectoFinalReactJS",
     category: ["web"],
   },
   {
@@ -82,6 +88,7 @@ export const projects: ProjectType[] = [
     image: "/recreativo-web.png",
     technologies: ["HTML", "CSS", "SCSS", "Bootstrap"],
     demoUrl: "https://facundovillarroel.github.io/FinalProyectWebDevelopment/",
+    repoUrl: "https://github.com/FacundoVillarroel/FinalProyectWebDevelopment",
     category: ["web"],
   },
   {
@@ -93,6 +100,7 @@ export const projects: ProjectType[] = [
     image: "/mybrary.png",
     technologies: ["Node.js", "Express", "MongoDB", "EJS"],
     demoUrl: "https://mybrary-snowy.vercel.app/",
+    repoUrl: "https://github.com/FacundoVillarroel/Mybrary",
     category: ["backend"],
   },
   {
@@ -105,6 +113,7 @@ export const projects: ProjectType[] = [
     image: "/exercise-app.png",
     technologies: ["React", "Vercel"],
     demoUrl: "https://exercises-app.vercel.app",
+    repoUrl: "https://github.com/FacundoVillarroel/Exercises_App",
     category: ["web"],
   },
 ];
