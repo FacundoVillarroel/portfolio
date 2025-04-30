@@ -21,6 +21,8 @@ import {
 } from "@/components/project-details-modal";
 import { getProjectsByCategory } from "@/data/projects";
 import { ChangeEvent, FormEvent, useState } from "react";
+import Spinner from "@/components/ui/spinner";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 interface FormData {
   firstName: string;
@@ -30,10 +32,16 @@ interface FormData {
   message: string;
 }
 
+const isValidEmail = (email: string) => {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+};
+
 export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<ProjectType | null>(
     null
   );
+  const [showAlert, setShowAlert] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
@@ -42,6 +50,7 @@ export default function Portfolio() {
     subject: "",
     message: "",
   });
+  const [formErrors, setFormErrors] = useState<Partial<FormData>>({});
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -60,17 +69,58 @@ export default function Portfolio() {
     }));
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      subject: "",
-      message: "",
+
+    const errors: Partial<FormData> = {};
+
+    // Validación genérica para campos vacíos
+    (["firstName", "lastName", "email", "subject", "message"] as (keyof FormData)[]).forEach((field) => {
+      if (!formData[field].trim()) {
+        errors[field] = "This field can't be empty";
+      }
     });
-    alert("Message sent!");
-    console.log(formData);
+    
+    // Validación específica para email
+    if (formData.email && !isValidEmail(formData.email)) {
+      errors.email = "Invalid email";
+    }
+    
+    setFormErrors(errors);
+    
+    if (Object.keys(errors).length > 0) return;
+
+    try {
+      setIsLoading(true);
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) throw new Error("Error sending message");
+
+      const result = await response.json();
+      if (result.success) {
+        setShowAlert(true);
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        alert("There was an issue sending the message.");
+      }
+      setIsLoading(false);
+    } catch (err) {
+      setIsLoading(false);
+      console.error(err);
+      alert("An unexpected error occurred. Please try again.");
+    }
   };
 
   const triggerClass =
@@ -677,6 +727,11 @@ export default function Portfolio() {
                         value={formData.firstName}
                         onChange={handleInputChange}
                       />
+                      {formErrors.firstName && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {formErrors.firstName}
+                        </p>
+                      )}
                     </div>
                     <div className="space-y-2">
                       <label
@@ -692,6 +747,11 @@ export default function Portfolio() {
                         value={formData.lastName}
                         onChange={handleInputChange}
                       />
+                      {formErrors.lastName && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {formErrors.lastName}
+                        </p>
+                      )}
                     </div>
                   </div>
                   <div className="space-y-2">
@@ -709,6 +769,11 @@ export default function Portfolio() {
                       value={formData.email}
                       onChange={handleInputChange}
                     />
+                    {formErrors.email && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {formErrors.email}
+                      </p>
+                    )}
                   </div>
                   <div className="space-y-2">
                     <label
@@ -724,6 +789,11 @@ export default function Portfolio() {
                       value={formData.subject}
                       onChange={handleInputChange}
                     />
+                    {formErrors.subject && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {formErrors.subject}
+                      </p>
+                    )}
                   </div>
                   <div className="space-y-2">
                     <label
@@ -739,13 +809,30 @@ export default function Portfolio() {
                       value={formData.message}
                       onChange={handleInputChange}
                     />
+                    {formErrors.message && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {formErrors.firstName}
+                      </p>
+                    )}
                   </div>
-                  <Button
-                    type="submit"
-                    className="w-full bg-blue-600 hover:bg-blue-700"
-                  >
-                    Send Message
-                  </Button>
+                  {isLoading ? (
+                    <Spinner />
+                  ) : (
+                    <Button
+                      type="submit"
+                      className="w-full bg-blue-600 hover:bg-blue-700"
+                    >
+                      Send Message
+                    </Button>
+                  )}
+                  {showAlert && (
+                    <Alert className="mt-4" variant="default">
+                      <AlertTitle>Message sent.</AlertTitle>
+                      <AlertDescription>
+                        Your message has been sent successfully.
+                      </AlertDescription>
+                    </Alert>
+                  )}
                 </form>
               </CardContent>
             </Card>
