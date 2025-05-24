@@ -22,9 +22,16 @@ export const projects: ProjectType[] = [
     title: "Clockaburra API (Backend)",
     description: "Scalable RESTful API for shift and employee management.",
     longDescription:
-      "Robust backend built with Node.js, featuring JWT authentication, Swagger documentation, MongoDB integration, and modular architecture. Ideal for HR systems, with full deployment and best backend practices.",
+      "Robust backend built with Node.js, featuring JWT authentication, Swagger documentation, Firebase integration, and modular architecture. Ideal for HR systems, with full deployment and best backend practices.",
     image: "/clockaburra-backend.png",
-    technologies: ["Node.js", "Express", "MongoDB", "JWT", "Swagger"],
+    technologies: [
+      "Node.js",
+      "Express",
+      "TypeScript",
+      "Firebase",
+      "JWT",
+      "Swagger",
+    ],
     demoUrl: "https://clockaburra-restful-api.vercel.app/api-docs",
     repoUrl: "https://github.com/FacundoVillarroel/Clockaburra-RESTful-API",
     category: ["backend", "fullstack"],
