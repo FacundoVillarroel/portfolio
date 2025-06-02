@@ -115,7 +115,7 @@ export default function Portfolio() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Phone className="h-4 w-4 text-blue-600" />
-                  <span>+61493689631</span>
+                  <span>+34671569901</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="h-4 w-4 text-blue-600" />
@@ -631,7 +631,7 @@ export default function Portfolio() {
                     <div>
                       <p className="text-sm font-medium">Phone</p>
                       <p className="text-slate-500 dark:text-slate-400">
-                        +61493689631
+                        +34671569901
                       </p>
                     </div>
                   </div>
