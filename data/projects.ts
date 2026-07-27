@@ -30,7 +30,7 @@ export const projects: ProjectType[] = [
     ],
     demoUrl: "https://youtu.be/IoPG2P4DQTI",
     repoUrl: "https://github.com/FacundoVillarroel/Clockaburra-RESTful-API",
-    category: ["backend", "fullstack"],
+    category: ["backend", "fullstack", "web"],
   },
   {
     id: "2",
@@ -51,7 +51,7 @@ export const projects: ProjectType[] = [
     ],
     demoUrl: "https://www.tumundointerior.cl",
     repoUrl: "https://github.com/FacundoVillarroel/TuMundoInterior",
-    category: ["fullstack", "web"],
+    category: ["fullstack", "web", "mobile"],
   },
   {
     id: "3",
