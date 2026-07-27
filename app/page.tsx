@@ -197,6 +197,106 @@ export default function Portfolio() {
           </div>
         </section>
 
+        {/* Projects Section */}
+        <section id="projects" className="py-20 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                  Projects
+                </h2>
+                <p className="mx-auto max-w-[700px] text-slate-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-slate-400">
+                  Showcasing my work
+                </p>
+              </div>
+            </div>
+            <Tabs defaultValue="all" className="mt-12">
+              <div className="flex justify-center">
+                <TabsList>
+                  <TabsTrigger value="all" className={triggerClass}>
+                    All
+                  </TabsTrigger>
+                  <TabsTrigger value="mobile" className={triggerClass}>
+                    Mobile
+                  </TabsTrigger>
+                  <TabsTrigger value="web" className={triggerClass}>
+                    Web
+                  </TabsTrigger>
+                  <TabsTrigger value="backend" className={triggerClass}>
+                    Backend
+                  </TabsTrigger>
+                  <TabsTrigger value="fullstack" className={triggerClass}>
+                    Fullstack
+                  </TabsTrigger>
+                </TabsList>
+              </div>
+              {["all", "mobile", "web", "backend", "fullstack"].map(
+                (category) => (
+                  <TabsContent key={category} value={category} className="mt-6">
+                    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                      {getProjectsByCategory(category).map((project) => (
+                        <Card key={project.id}>
+                          <CardHeader className="p-0">
+                            <Image
+                              src={project.image || "/placeholder.svg"}
+                              alt={project.title}
+                              width={500}
+                              height={300}
+                              className="rounded-t-lg object-cover w-full h-48"
+                            />
+                          </CardHeader>
+                          <CardContent className="p-6">
+                            <CardTitle>{project.title}</CardTitle>
+                            <CardDescription className="mt-2">
+                              {project.description}
+                            </CardDescription>
+                          </CardContent>
+                          <CardFooter className="flex justify-between">
+                            <div className="flex gap-2">
+                              {project.demoUrl && (
+                                <Button variant="outline" size="sm" asChild>
+                                  <a
+                                    href={project.demoUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    View demo
+                                  </a>
+                                </Button>
+                              )}
+                              {project.repoUrl && (
+                                <Button variant="outline" size="sm" asChild>
+                                  <a
+                                    href={project.repoUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    <Github className="h-4 w-4 mr-2" />
+                                    Repository
+                                  </a>
+                                </Button>
+                              )}
+                            </div>
+                            <Button
+                              size="sm"
+                              onClick={() => {
+                                setSelectedProject(project);
+                                setIsModalOpen(true);
+                              }}
+                            >
+                              Details
+                            </Button>
+                          </CardFooter>
+                        </Card>
+                      ))}
+                    </div>
+                  </TabsContent>
+                ),
+              )}
+            </Tabs>
+          </div>
+        </section>
+
         {/* Skills Section */}
         <section id="skills" className="py-20 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
@@ -462,6 +562,19 @@ export default function Portfolio() {
             <div className="mx-auto grid max-w-5xl gap-6 py-12 md:grid-cols-3">
               <Card>
                 <CardHeader>
+                  <CardTitle>Higher Technician in Programming</CardTitle>
+                  <CardDescription>
+                    Universidad Tecnológica Nacional (UTN - ARG)
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-slate-500 dark:text-slate-400">
+                    In Progress · august 2025 – Present
+                  </p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
                   <CardTitle>React Native</CardTitle>
                   <CardDescription>Coderhouse academy</CardDescription>
                 </CardHeader>
@@ -494,106 +607,6 @@ export default function Portfolio() {
                 </CardContent>
               </Card>
             </div>
-          </div>
-        </section>
-
-        {/* Projects Section */}
-        <section id="projects" className="py-20 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  Projects
-                </h2>
-                <p className="mx-auto max-w-[700px] text-slate-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-slate-400">
-                  Showcasing my work
-                </p>
-              </div>
-            </div>
-            <Tabs defaultValue="all" className="mt-12">
-              <div className="flex justify-center">
-                <TabsList>
-                  <TabsTrigger value="all" className={triggerClass}>
-                    All
-                  </TabsTrigger>
-                  <TabsTrigger value="mobile" className={triggerClass}>
-                    Mobile
-                  </TabsTrigger>
-                  <TabsTrigger value="web" className={triggerClass}>
-                    Web
-                  </TabsTrigger>
-                  <TabsTrigger value="backend" className={triggerClass}>
-                    Backend
-                  </TabsTrigger>
-                  <TabsTrigger value="fullstack" className={triggerClass}>
-                    Fullstack
-                  </TabsTrigger>
-                </TabsList>
-              </div>
-              {["all", "mobile", "web", "backend", "fullstack"].map(
-                (category) => (
-                  <TabsContent key={category} value={category} className="mt-6">
-                    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                      {getProjectsByCategory(category).map((project) => (
-                        <Card key={project.id}>
-                          <CardHeader className="p-0">
-                            <Image
-                              src={project.image || "/placeholder.svg"}
-                              alt={project.title}
-                              width={500}
-                              height={300}
-                              className="rounded-t-lg object-cover w-full h-48"
-                            />
-                          </CardHeader>
-                          <CardContent className="p-6">
-                            <CardTitle>{project.title}</CardTitle>
-                            <CardDescription className="mt-2">
-                              {project.description}
-                            </CardDescription>
-                          </CardContent>
-                          <CardFooter className="flex justify-between">
-                            <div className="flex gap-2">
-                              {project.demoUrl && (
-                                <Button variant="outline" size="sm" asChild>
-                                  <a
-                                    href={project.demoUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                  >
-                                    View demo
-                                  </a>
-                                </Button>
-                              )}
-                              {project.repoUrl && (
-                                <Button variant="outline" size="sm" asChild>
-                                  <a
-                                    href={project.repoUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                  >
-                                    <Github className="h-4 w-4 mr-2" />
-                                    Repository
-                                  </a>
-                                </Button>
-                              )}
-                            </div>
-                            <Button
-                              size="sm"
-                              onClick={() => {
-                                setSelectedProject(project);
-                                setIsModalOpen(true);
-                              }}
-                            >
-                              Details
-                            </Button>
-                          </CardFooter>
-                        </Card>
-                      ))}
-                    </div>
-                  </TabsContent>
-                )
-              )}
-            </Tabs>
           </div>
         </section>
 
