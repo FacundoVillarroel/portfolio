@@ -175,21 +175,40 @@ export default function Portfolio() {
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-4">
                   <p className="text-slate-500 dark:text-slate-400">
-                    Full-stack developer with hands-on experience building web
-                    and mobile applications from scratch using React, React
-                    Native, Node.js, and Firebase.
+                    I'm a Full Stack Developer who likes understanding how
+                    software works from end to end. Most of my projects aren't
+                    just frontend or backend applications, they're complete
+                    systems where every layer has to work together.
                   </p>
+
                   <p className="text-slate-500 dark:text-slate-400">
-                    Recognized for commitment and responsibility, with strong
-                    ability to learn quickly, work collaboratively, and adapt to
-                    dynamic projects. Passionate about solving real-world
-                    problems and creating intuitive, functional interfaces.
+                    During the previous years I've been building web, mobile and
+                    backend applications using React, React Native, Node.js and
+                    TypeScript, while also spending a lot of time learning how
+                    to organize projects so they're easier to maintain as they
+                    grow.
                   </p>
+
                   <p className="text-slate-500 dark:text-slate-400">
-                    Skilled in effective communication, critical thinking, and
-                    time management, enabling the development of efficient
-                    solutions and collaboration in fast-paced development
-                    environments.
+                    The project that best represents how I like to work is
+                    Clockaburra, a workforce management platform that includes a
+                    REST API, a web application and a mobile app sharing the
+                    same backend. It challenged me to think beyond individual
+                    features and design everything as a single product.
+                  </p>
+
+                  <p className="text-slate-500 dark:text-slate-400">
+                    I'm usually more interested in why something is built a
+                    certain way than simply making it work. That's why software
+                    architecture, backend development and system design are the
+                    areas I naturally spend the most time exploring.
+                  </p>
+
+                  <p className="text-slate-500 dark:text-slate-400">
+                    Right now I'm looking for my first professional opportunity
+                    where I can continue learning, work alongside experienced
+                    developers and contribute to products that solve real
+                    problems.
                   </p>
                 </div>
               </div>
