@@ -56,6 +56,12 @@ export default function Portfolio() {
                 About
               </Link>
               <Link
+                href="#projects"
+                className="text-sm font-medium hover:text-blue-600 transition-colors"
+              >
+                Projects
+              </Link>
+              <Link
                 href="#skills"
                 className="text-sm font-medium hover:text-blue-600 transition-colors"
               >
@@ -66,12 +72,6 @@ export default function Portfolio() {
                 className="text-sm font-medium hover:text-blue-600 transition-colors"
               >
                 Education
-              </Link>
-              <Link
-                href="#projects"
-                className="text-sm font-medium hover:text-blue-600 transition-colors"
-              >
-                Projects
               </Link>
               <Link
                 href="#contact"
@@ -127,7 +127,7 @@ export default function Portfolio() {
                   </div>
                   <div className="flex items-center gap-4 mt-2">
                     <Link
-                      href="https://www.linkedin.com/in/facundo-villarroel-391a26236"
+                      href="www.linkedin.com/in/villarroelfacundo"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -681,7 +681,7 @@ export default function Portfolio() {
                   <CardContent>
                     <div className="flex space-x-4">
                       <Link
-                        href="https://www.linkedin.com/in/facundo-villarroel-391a26236"
+                        href="www.linkedin.com/in/villarroelfacundo"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-slate-500 hover:text-blue-600 dark:text-slate-400"
@@ -714,7 +714,7 @@ export default function Portfolio() {
             </div>
             <div className="flex items-center gap-4">
               <Link
-                href="https://www.linkedin.com/in/facundo-villarroel-391a26236"
+                href="www.linkedin.com/in/villarroelfacundo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-500 hover:text-blue-600 dark:text-slate-400"
