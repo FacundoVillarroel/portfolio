@@ -50,7 +50,7 @@ export const projects: ProjectType[] = [
       "Mailjet",
     ],
     demoUrl: "https://www.tumundointerior.cl",
-    repoUrl: "https://github.com/FacundoVillarroel/TuMundoInterior",
+    repoUrl: "https://github.com/FacundoVillarroel/tumundointeriorweb",
     category: ["fullstack", "web", "mobile"],
   },
   {
