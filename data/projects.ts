@@ -28,7 +28,7 @@ export const projects: ProjectType[] = [
       "Real-Time Sync",
       "Responsive Design",
     ],
-    demoUrl: "https://youtu.be/IoPG2P4DQTI",
+    demoUrl: "https://youtu.be/x4V3FZvUkHM",
     repoUrl: "https://github.com/FacundoVillarroel/Clockaburra-RESTful-API",
     category: ["backend", "fullstack", "web"],
   },
