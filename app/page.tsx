@@ -127,7 +127,7 @@ export default function Portfolio() {
                   </div>
                   <div className="flex items-center gap-4 mt-2">
                     <Link
-                      href="www.linkedin.com/in/villarroelfacundo"
+                      href="https://www.linkedin.com/in/villarroelfacundo"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -700,7 +700,7 @@ export default function Portfolio() {
                   <CardContent>
                     <div className="flex space-x-4">
                       <Link
-                        href="www.linkedin.com/in/villarroelfacundo"
+                        href="https://www.linkedin.com/in/villarroelfacundo"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-slate-500 hover:text-blue-600 dark:text-slate-400"
@@ -733,7 +733,7 @@ export default function Portfolio() {
             </div>
             <div className="flex items-center gap-4">
               <Link
-                href="www.linkedin.com/in/villarroelfacundo"
+                href="https://www.linkedin.com/in/villarroelfacundo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-500 hover:text-blue-600 dark:text-slate-400"
